@@ -173,6 +173,8 @@ endif()
 
 add_executable(inchi_main ${INCHI_MAIN_SOURCES} ${INCHI_MAIN_HEADERS} ${INCHI_MAIN_RES})
 target_link_libraries(inchi_main PUBLIC inchi)
+target_link_libraries(inchi PRIVATE ${LIBM_LIBRARIES})
+
 target_include_directories(inchi_main PRIVATE source_subfolder/INCHI_API/inchi_dll/)
 target_include_directories(inchi_main PRIVATE source_subfolder/INCHI_API/inchi_main/)
 
