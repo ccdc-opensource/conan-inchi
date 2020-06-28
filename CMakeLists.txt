@@ -8,6 +8,21 @@ else()
 endif()
 conan_basic_setup()
 
+include(CheckCSourceCompiles)
+set(LIBM_TEST_SOURCE "#include<math.h>\nfloat f; int main(){sqrt(f);return 0;}")
+check_c_source_compiles("${LIBM_TEST_SOURCE}" HAVE_MATH)
+if(HAVE_MATH)
+  set(LIBM_LIBRARIES)
+else()
+  set(CMAKE_REQUIRED_LIBRARIES m)
+  check_c_source_compiles("${LIBM_TEST_SOURCE}" HAVE_LIBM_MATH)
+  unset(CMAKE_REQUIRED_LIBRARIES)
+  if(NOT HAVE_LIBM_MATH)
+    message(FATAL_ERROR "Unable to use C math library functions")
+  endif()
+  set(LIBM_LIBRARIES m)
+endif()
+
 set(PACKAGE_VERSION 1.04)
 set(INCHI_API_SOURCES
   source_subfolder/INCHI_API/inchi_dll/ichi_bns.c
@@ -105,6 +120,7 @@ endif()
 target_include_directories(inchi PRIVATE source_subfolder/INCHI_API/inchi_dll/)
 
 set_target_properties(inchi PROPERTIES PUBLIC_HEADER source_subfolder/INCHI_API/inchi_dll/inchi_api.h)
+target_link_libraries(inchi PRIVATE ${LIBM_LIBRARIES})
 
 install(TARGETS inchi
         EXPORT InchiTargets
