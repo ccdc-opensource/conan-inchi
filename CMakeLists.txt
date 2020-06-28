@@ -120,7 +120,7 @@ endif()
 target_include_directories(inchi PRIVATE source_subfolder/INCHI_API/inchi_dll/)
 
 set_target_properties(inchi PROPERTIES PUBLIC_HEADER source_subfolder/INCHI_API/inchi_dll/inchi_api.h)
-target_link_libraries(inchi PRIVATE ${LIBM_LIBRARIES})
+target_link_libraries(inchi PUBLIC ${LIBM_LIBRARIES})
 
 install(TARGETS inchi
         EXPORT InchiTargets
@@ -172,8 +172,7 @@ if(WIN32)
 endif()
 
 add_executable(inchi_main ${INCHI_MAIN_SOURCES} ${INCHI_MAIN_HEADERS} ${INCHI_MAIN_RES})
-target_link_libraries(inchi_main PUBLIC inchi)
-target_link_libraries(inchi PRIVATE ${LIBM_LIBRARIES})
+target_link_libraries(inchi_main PUBLIC inchi ${LIBM_LIBRARIES})
 
 target_include_directories(inchi_main PRIVATE source_subfolder/INCHI_API/inchi_dll/)
 target_include_directories(inchi_main PRIVATE source_subfolder/INCHI_API/inchi_main/)
