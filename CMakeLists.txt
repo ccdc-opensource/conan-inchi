@@ -122,13 +122,20 @@ target_include_directories(inchi PRIVATE source_subfolder/INCHI_API/inchi_dll/)
 set_target_properties(inchi PROPERTIES PUBLIC_HEADER source_subfolder/INCHI_API/inchi_dll/inchi_api.h)
 target_link_libraries(inchi PUBLIC ${LIBM_LIBRARIES})
 
+include(GNUInstallDirs)
 install(TARGETS inchi
         EXPORT InchiTargets
-        LIBRARY DESTINATION lib
-        ARCHIVE DESTINATION lib
-        RUNTIME DESTINATION bin
-        INCLUDES DESTINATION include
-        PUBLIC_HEADER DESTINATION include
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+                COMPONENT Inchi_Runtime
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+                COMPONENT Inchi_Runtime
+                NAMELINK_COMPONENT Inchi_Development
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+                COMPONENT Inchi_Development
+        INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+                COMPONENT Inchi_Development
+        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+                COMPONENT Inchi_Development
         )
 
 set(INCHI_MAIN_SOURCES
@@ -180,8 +187,6 @@ target_include_directories(inchi_main PRIVATE source_subfolder/INCHI_API/inchi_m
 
 install(TARGETS inchi_main
         EXPORT InchiTargets
-        LIBRARY DESTINATION lib
-        ARCHIVE DESTINATION lib
-        RUNTIME DESTINATION bin
-        INCLUDES DESTINATION include
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+                COMPONENT Inchi_Runtime
         )
