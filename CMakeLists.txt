@@ -104,7 +104,7 @@ set(INCHI_API_HEADERS
 )
 if(WIN32)
   set(INCHI_API_DLL
-    source_subfolder/INCHI_API/vc9/inchi_dll/vc9_libinchi.def
+    # source_subfolder/INCHI_API/vc9/inchi_dll/vc9_libinchi.def
     source_subfolder/INCHI_API/vc9/inchi_dll/INCHI_DLL.rc
   )
 endif()
@@ -173,6 +173,7 @@ endif()
 
 add_executable(inchi_main ${INCHI_MAIN_SOURCES} ${INCHI_MAIN_HEADERS} ${INCHI_MAIN_RES})
 target_link_libraries(inchi_main PUBLIC inchi ${LIBM_LIBRARIES})
+set_target_properties(inchi_main PROPERTIES OUTPUT_NAME "inchi")
 
 target_include_directories(inchi_main PRIVATE source_subfolder/INCHI_API/inchi_dll/)
 target_include_directories(inchi_main PRIVATE source_subfolder/INCHI_API/inchi_main/)
@@ -184,15 +185,3 @@ install(TARGETS inchi_main
         RUNTIME DESTINATION bin
         INCLUDES DESTINATION include
         )
-
-include(CMakePackageConfigHelpers)
-write_basic_package_version_file(
-    InchiConfigVersion.cmake
-    VERSION ${PACKAGE_VERSION}
-    COMPATIBILITY AnyNewerVersion
-    )
-install(EXPORT InchiTargets
-        FILE InchiTargets.cmake
-        NAMESPACE Inchi::
-        DESTINATION lib/cmake/Inchi
-         )

@@ -66,13 +66,14 @@ class InchiConan(ConanFile):
         tools.rmdir(os.path.join(self.package_folder, "lib", "cmake"))
         self.copy(pattern="LICENCE*", dst="licenses", src=self._source_subfolder)
 
+
     def package_info(self):
-        # self.cpp_info.names["cmake_find_package"] = "Inchi::inchi"
-        # self.cpp_info.names["cmake_find_package_multi"] = "Inchi::inchi"
+        self.cpp_info.names["cmake_find_package"] = "Inchi"
+        self.cpp_info.names["cmake_find_package_multi"] = "Inchi"
         bin_path = os.path.join(self.package_folder, "bin")
         self.output.info("Appending PATH env var with : {}".format(bin_path))
         self.env_info.PATH.append(bin_path)
 
         self.cpp_info.libs = tools.collect_libs(self)
         if self.settings.os == "Linux":
-            self.cpp_info.system_libs.extend(["m"])
+            self.cpp_info.system_libs.append("m")
