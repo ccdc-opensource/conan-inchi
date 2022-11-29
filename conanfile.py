@@ -40,7 +40,7 @@ class InchiConan(ConanFile):
     
     def source(self):
         tools.get(**self.conan_data["sources"][self.version])
-        extracted_dir = 'INCHI-1-API'
+        extracted_dir = 'INCHI-1-SRC'
         os.rename(extracted_dir, self._source_subfolder)
 
     def _configure_cmake(self):
