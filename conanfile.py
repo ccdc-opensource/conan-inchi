@@ -5,7 +5,7 @@ import os
 
 class InchiConan(ConanFile):
     name = "inchi"
-    # version = '1.04'
+    version = '1.06'
     description = "Open-source chemical structure representation algorithm"
     homepage = "https://www.inchi-trust.org/"
     url = "https://github.com/conan-io/conan-center-index"
