@@ -1,7 +1,8 @@
 resources:
   repositories:
     - repository: templates
-      type: git
+      type: github
+      endpoint: github
       name: ccdc-opensource/conan-azure-devops
       ref: refs/heads/development
 
