@@ -25,6 +25,13 @@ endif()
 
 set(PACKAGE_VERSION 1.06)
 add_compile_definitions(TARGET_API_LIB)
+
+message(STATUS "variable 0: ${source_subfolder}")
+set(THING1 source_subfolder/thing1)
+message(STATUS "variable 1: ${THING1}")
+set(THING2 ${source_subfolder}/thing2)
+message(STATUS "variable 2: ${THING2}")
+
 set(INCHI_API_SOURCES
   source_subfolder/INCHI_API/libinchi/src/ichilnct.c
   source_subfolder/INCHI_API/libinchi/src/inchi_dll.c
