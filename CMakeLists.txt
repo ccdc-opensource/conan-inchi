@@ -176,18 +176,16 @@ install(TARGETS inchi
 
 set(INCHI_MAIN_SOURCES
   ${INCHI_DEMOS}/e_0dstereo.c
-  ${INCHI_DEMOS}/e_ichimain.c
-  ${INCHI_DEMOS}/e_ichimain_a.c
   ${INCHI_DEMOS}/e_ichi_io.c
   ${INCHI_DEMOS}/e_ichi_parms.c
+  ${INCHI_DEMOS}/e_ichimain.c
+  ${INCHI_DEMOS}/e_ichimain_a.c
   ${INCHI_DEMOS}/e_inchi_atom.c
   ${INCHI_DEMOS}/e_mol2atom.c
   ${INCHI_DEMOS}/e_readinch.c
   ${INCHI_DEMOS}/e_readmol.c
   ${INCHI_DEMOS}/e_readstru.c
   ${INCHI_DEMOS}/e_util.c
-  ${INCHI_EXE}/dispstru.c
-  ${INCHI_EXE}/ichimain.c
 )
 
 set(INCHI_MAIN_HEADERS
@@ -195,11 +193,11 @@ set(INCHI_MAIN_HEADERS
   ${INCHI_DEMOS}/e_0dstereo.h
   ${INCHI_DEMOS}/e_comdef.h
   ${INCHI_DEMOS}/e_ctl_data.h
+  ${INCHI_DEMOS}/e_ichi_io.h
   ${INCHI_DEMOS}/e_ichicomp.h
   ${INCHI_DEMOS}/e_ichierr.h
   ${INCHI_DEMOS}/e_ichisize.h
   ${INCHI_DEMOS}/e_ichitime.h
-  ${INCHI_DEMOS}/e_ichi_io.h
   ${INCHI_DEMOS}/e_inchi_atom.h
   ${INCHI_DEMOS}/e_inpdef.h
   ${INCHI_DEMOS}/e_main.h
