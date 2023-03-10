@@ -37,18 +37,8 @@ set(INCHI_EXE source_subfolder/INCHI_EXE/inchi-1/src)
 
 add_compile_definitions(TARGET_API_LIB)
 set(INCHI_API_SOURCES
-  ${LIB_INCHI_SRC}/ichilnct.c
-  ${LIB_INCHI_SRC}/inchi_dll.c
-  ${LIB_INCHI_SRC}/inchi_dll_a.c
-  ${LIB_INCHI_SRC}/inchi_dll_a2.c
-  ${LIB_INCHI_SRC}/inchi_dll_b.c
-  ${LIB_INCHI_SRC}/inchi_dll_main.c
-  ${LIB_INCHI_IXA}/ixa_builder.c
-  ${LIB_INCHI_IXA}/ixa_inchikey_builder.c
-  ${LIB_INCHI_IXA}/ixa_mol.c
-  ${LIB_INCHI_IXA}/ixa_read_inchi.c
-  ${LIB_INCHI_IXA}/ixa_read_mol.c
-  ${LIB_INCHI_IXA}/ixa_status.c
+  ${INCHI_BASE_SRC}/ichi_bns.c
+  ${INCHI_BASE_SRC}/ichi_io.c
   ${INCHI_BASE_SRC}/ichican2.c
   ${INCHI_BASE_SRC}/ichicano.c
   ${INCHI_BASE_SRC}/ichicans.c
@@ -77,16 +67,14 @@ set(INCHI_API_SOURCES
   ${INCHI_BASE_SRC}/ichisort.c
   ${INCHI_BASE_SRC}/ichister.c
   ${INCHI_BASE_SRC}/ichitaut.c
-  ${INCHI_BASE_SRC}/ichi_bns.c
-  ${INCHI_BASE_SRC}/ichi_io.c
   ${INCHI_BASE_SRC}/ikey_base26.c
   ${INCHI_BASE_SRC}/ikey_dll.c
   ${INCHI_BASE_SRC}/inchi_gui.c
-  ${INCHI_BASE_SRC}/mol2atom.c
   ${INCHI_BASE_SRC}/mol_fmt1.c
   ${INCHI_BASE_SRC}/mol_fmt2.c
   ${INCHI_BASE_SRC}/mol_fmt3.c
   ${INCHI_BASE_SRC}/mol_fmt4.c
+  ${INCHI_BASE_SRC}/mol2atom.c
   ${INCHI_BASE_SRC}/readinch.c
   ${INCHI_BASE_SRC}/runichi.c
   ${INCHI_BASE_SRC}/runichi2.c
@@ -95,21 +83,26 @@ set(INCHI_API_SOURCES
   ${INCHI_BASE_SRC}/sha2.c
   ${INCHI_BASE_SRC}/strutil.c
   ${INCHI_BASE_SRC}/util.c
+  ${LIB_INCHI_SRC}/ichilnct.c
+  ${LIB_INCHI_SRC}/inchi_dll.c
+  ${LIB_INCHI_SRC}/inchi_dll_a.c
+  ${LIB_INCHI_SRC}/inchi_dll_a2.c
+  ${LIB_INCHI_SRC}/inchi_dll_b.c
+  ${LIB_INCHI_SRC}/inchi_dll_main.c
+  ${LIB_INCHI_IXA}/ixa_builder.c
+  ${LIB_INCHI_IXA}/ixa_inchikey_builder.c
+  ${LIB_INCHI_IXA}/ixa_mol.c
+  ${LIB_INCHI_IXA}/ixa_read_inchi.c
+  ${LIB_INCHI_IXA}/ixa_read_mol.c
+  ${LIB_INCHI_IXA}/ixa_status.c
 )
 
 set(INCHI_API_HEADERS
-  ${LIB_INCHI_SRC}/inchi_dll.h
-  ${LIB_INCHI_SRC}/inchi_dll_a.h
-  ${LIB_INCHI_SRC}/inchi_dll_b.h
-  ${LIB_INCHI_SRC}/inchi_dll_main.h
-  ${LIB_INCHI_IXA}/ixa_mol.h
-  ${LIB_INCHI_IXA}/ixa_status.h
-  ${LIB_VC}/resource.h
-  ${INCHI_TBB}/scalable_allocator.h
-  ${INCHI_TBB}/tbbmalloc_proxy_for_inchi.h
   ${INCHI_BASE_SRC}/aux2atom.h
   ${INCHI_BASE_SRC}/extr_ct.h
   ${INCHI_BASE_SRC}/ichi.h
+  ${INCHI_BASE_SRC}/ichi_bns.h
+  ${INCHI_BASE_SRC}/ichi_io.h
   ${INCHI_BASE_SRC}/ichicano.h
   ${INCHI_BASE_SRC}/ichicant.h
   ${INCHI_BASE_SRC}/ichicomn.h
@@ -125,12 +118,10 @@ set(INCHI_API_HEADERS
   ${INCHI_BASE_SRC}/ichister.h
   ${INCHI_BASE_SRC}/ichitaut.h
   ${INCHI_BASE_SRC}/ichitime.h
-  ${INCHI_BASE_SRC}/ichi_bns.h
-  ${INCHI_BASE_SRC}/ichi_io.h
   ${INCHI_BASE_SRC}/ikey_base26.h
-  ${INCHI_BASE_SRC}/inchicmp.h
   ${INCHI_BASE_SRC}/inchi_api.h
   ${INCHI_BASE_SRC}/inchi_gui.h
+  ${INCHI_BASE_SRC}/inchicmp.h
   ${INCHI_BASE_SRC}/incomdef.h
   ${INCHI_BASE_SRC}/inpdef.h
   ${INCHI_BASE_SRC}/ixa.h
@@ -139,8 +130,14 @@ set(INCHI_API_HEADERS
   ${INCHI_BASE_SRC}/readinch.h
   ${INCHI_BASE_SRC}/sha2.h
   ${INCHI_BASE_SRC}/strutil.h
-  ${INCHI_BASE_SRC}/tbb/tbbmalloc_proxy.h
   ${INCHI_BASE_SRC}/util.h
+  ${LIB_INCHI_SRC}/inchi_dll.h
+  ${LIB_INCHI_SRC}/inchi_dll_a.h
+  ${LIB_INCHI_SRC}/inchi_dll_b.h
+  ${LIB_INCHI_SRC}/inchi_dll_main.h
+  ${LIB_INCHI_IXA}/ixa_mol.h
+  ${LIB_INCHI_IXA}/ixa_status.h
+  ${LIB_VC}/resource.h
 )
 if(WIN32)
   set(INCHI_API_DLL
