@@ -35,7 +35,6 @@ set(LIB_VC source_subfolder/INCHI_API/libinchi/vc14)
 set(MAIN_VC source_subfolder/INCHI_API/demos/inchi_main/vc14)
 set(INCHI_EXE source_subfolder/INCHI_EXE/inchi-1/src)
 
-add_compile_definitions(TARGET_API_LIB)
 set(INCHI_API_SOURCES
   ${INCHI_BASE_SRC}/ichi_bns.c
   ${INCHI_BASE_SRC}/ichi_io.c
@@ -155,6 +154,8 @@ endif()
 
 target_include_directories(inchi PRIVATE ${LIB_INCHI_SRC})
 
+target_compile_definitions(inchi PRIVATE -DTARGET_API_LIB)
+
 set_target_properties(inchi PROPERTIES PUBLIC_HEADER ${INCHI_BASE_SRC}/inchi_api.h)
 target_link_libraries(inchi PUBLIC ${LIBM_LIBRARIES})
 
@@ -221,6 +222,8 @@ set_target_properties(inchi_main PROPERTIES OUTPUT_NAME "inchi")
 
 target_include_directories(inchi_main PRIVATE ${LIB_INCHI_SRC})
 target_include_directories(inchi_main PRIVATE ${INCHI_BASE_SRC})
+
+target_compile_definitions(inchi_main PRIVATE -DTARGET_EXE_USING_API)
 
 install(TARGETS inchi_main
         EXPORT InchiTargets
