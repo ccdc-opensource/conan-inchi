@@ -154,7 +154,7 @@ endif()
 
 target_include_directories(inchi PUBLIC ${INCHI_BASE_SRC} ${LIB_INCHI_SRC} ${LIB_INCHI_IXA} ${LIB_VC})
 
-target_compile_definitions(inchi PUBLIC -DTARGET_API_LIB)
+target_compile_definitions(inchi PRIVATE -DTARGET_API_LIB)
 
 set_target_properties(inchi PROPERTIES PUBLIC_HEADER ${INCHI_BASE_SRC}/inchi_api.h)
 target_link_libraries(inchi PUBLIC ${LIBM_LIBRARIES})
