@@ -152,7 +152,7 @@ else()
   add_library(inchi STATIC ${INCHI_API_SOURCES} ${INCHI_API_HEADERS})
 endif()
 
-target_include_directories(inchi PRIVATE ${INCHI_BASE_SRC} ${LIB_INCHI_SRC} ${LIB_INCHI_IXA} ${LIB_VC})
+target_include_directories(inchi PUBLIC ${INCHI_BASE_SRC} ${LIB_INCHI_SRC} ${LIB_INCHI_IXA} ${LIB_VC})
 
 target_compile_definitions(inchi PRIVATE -DTARGET_API_LIB)
 
