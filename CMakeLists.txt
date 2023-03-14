@@ -152,9 +152,8 @@ else()
   add_library(inchi STATIC ${INCHI_API_SOURCES} ${INCHI_API_HEADERS})
 endif()
 
-message(STATUS "install dir = ${CMAKE_INSTALL_INCLUDEDIR}")
 include(GNUInstallDirs)
-message(STATUS "install dir = ${CMAKE_INSTALL_INCLUDEDIR}")
+message(ERROR "install dir = ${CMAKE_INSTALL_INCLUDEDIR}")
 set(LIB_INCLUDE_DIRS ${INCHI_BASE_SRC} ${LIB_INCHI_SRC} ${LIB_INCHI_IXA} ${LIB_VC})
 target_include_directories(inchi 
   PUBLIC 
@@ -169,7 +168,6 @@ target_compile_definitions(inchi PRIVATE -DTARGET_API_LIB)
 set_target_properties(inchi PROPERTIES PUBLIC_HEADER ${INCHI_BASE_SRC}/inchi_api.h)
 target_link_libraries(inchi PUBLIC ${LIBM_LIBRARIES})
 
-#include(GNUInstallDirs)
 install(TARGETS inchi
         EXPORT InchiTargets
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
