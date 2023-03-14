@@ -152,7 +152,14 @@ else()
   add_library(inchi STATIC ${INCHI_API_SOURCES} ${INCHI_API_HEADERS})
 endif()
 
-target_include_directories(inchi PUBLIC ${INCHI_BASE_SRC} ${LIB_INCHI_SRC} ${LIB_INCHI_IXA} ${LIB_VC})
+set(LIB_INCLUDE_DIRS ${INCHI_BASE_SRC} ${LIB_INCHI_SRC} ${LIB_INCHI_IXA} ${LIB_VC})
+target_include_directories(inchi 
+  PUBLIC 
+    $<BUILD_INTERFACE:${LIB_INCLUDE_DIRS}>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+  PRIVATE
+    ${LIB_INCLUDE_DIRS}
+  )
 
 target_compile_definitions(inchi PRIVATE -DTARGET_API_LIB)
 
@@ -220,8 +227,8 @@ add_executable(inchi_main ${INCHI_MAIN_SOURCES} ${INCHI_MAIN_HEADERS} ${INCHI_MA
 target_link_libraries(inchi_main PUBLIC inchi ${LIBM_LIBRARIES})
 set_target_properties(inchi_main PROPERTIES OUTPUT_NAME "inchi")
 
-target_include_directories(inchi_main PRIVATE ${INCHI_BASE_SRC} ${LIB_INCHI_SRC} ${LIB_INCHI_IXA} ${LIB_VC})
-target_include_directories(inchi_main PRIVATE ${INCHI_DEMOS} ${MAIN_VC})
+set(MAIN_INCLUDE_DIRS ${LIB_INCLUDE_DIRS} ${INCHI_DEMOS} ${MAIN_VC})
+target_include_directories(inchi_main PRIVATE ${MAIN_INCLUDE_DIRS})
 
 target_compile_definitions(inchi_main PRIVATE -DTARGET_EXE_USING_API)
 
