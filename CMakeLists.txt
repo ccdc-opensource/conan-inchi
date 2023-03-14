@@ -153,7 +153,6 @@ else()
 endif()
 
 include(GNUInstallDirs)
-message(ERROR "install dir = ${CMAKE_INSTALL_INCLUDEDIR}")
 set(LIB_INCLUDE_DIRS ${INCHI_BASE_SRC} ${LIB_INCHI_SRC} ${LIB_INCHI_IXA} ${LIB_VC})
 target_include_directories(inchi 
   PUBLIC 
