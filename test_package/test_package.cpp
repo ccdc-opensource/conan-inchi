@@ -21,7 +21,7 @@
  * SOFTWARE.
  */
 
-#include "inchi_api.h"
+#include <inchi_api.h>
 #include <string>
 
 int main()
