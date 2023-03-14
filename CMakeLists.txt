@@ -182,6 +182,8 @@ install(TARGETS inchi
                 COMPONENT Inchi_Development
         )
 
+
+
 set(INCHI_MAIN_SOURCES
   ${INCHI_DEMOS}/e_0dstereo.c
   ${INCHI_DEMOS}/e_ichi_io.c
