@@ -164,10 +164,8 @@ target_include_directories(inchi
 
 target_compile_definitions(inchi PRIVATE -DTARGET_API_LIB)
 
-set_target_properties(inchi PROPERTIES 
-  PUBLIC_HEADER ${INCHI_BASE_SRC}/inchi_api.h
-  PUBLIC_HEADER ${INCHI_BASE_SRC}/ixa.h
-)
+set(PUBL_HDRS ${INCHI_BASE_SRC}/inchi_api.h ${INCHI_BASE_SRC}/ixa.h)
+set_target_properties(inchi PROPERTIES PUBLIC_HEADER "${PUBL_HDRS}")
 
 target_link_libraries(inchi PUBLIC ${LIBM_LIBRARIES})
 
