@@ -4,4 +4,4 @@ sources:
     sha256: "c187573c0f6a1fcd555393315383bd1f69563ee47bd43c898f17c473b7bb690a"
   "1.06":
     url: "http://www.inchi-trust.org/wp/download/106/INCHI-1-SRC.zip"
-
+    sha256: "4874e310c0f2f81b881e90dd0c534752e1b9421d7d92ccfb037710022c7e7efd"
