@@ -39,6 +39,7 @@ class InchiConan(ConanFile):
         self.build_requires("cmake/3.17.3")
     
     def source(self):
+        del self.conan_data["sources"][self.version]["sha256"]
         tools.get(**self.conan_data["sources"][self.version])
         extracted_dir = 'INCHI-1-SRC'
         os.rename(extracted_dir, self._source_subfolder)
