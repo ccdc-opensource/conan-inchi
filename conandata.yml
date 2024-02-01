@@ -5,3 +5,6 @@ sources:
   "1.06":
     url: "https://www.inchi-trust.org/wp/download/106/INCHI-1-SRC.zip"
     sha256: "4874e310c0f2f81b881e90dd0c534752e1b9421d7d92ccfb037710022c7e7efd"
+  "1.07-beta3":
+    url: "https://github.com/IUPAC-InChI/InChI/releases/download/v1.07-beta.3/INCHI-1-SRC.zip"
+    sha256: "1f3b3dd33a8af9dfa67f55526420a1d804da05aee8b2538095980d7e4e8d3771"

@@ -23,7 +23,7 @@ else()
   set(LIBM_LIBRARIES m)
 endif()
 
-set(PACKAGE_VERSION 1.06)
+set(PACKAGE_VERSION 1.07-beta3)
 add_compile_definitions(TARGET_API_LIB)
 set(INCHI_API_SOURCES
   source_subfolder/INCHI_API/libinchi/src/ichilnct.c
