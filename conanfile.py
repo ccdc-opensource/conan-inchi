@@ -36,7 +36,7 @@ class InchiConan(ConanFile):
         del self.settings.compiler.cppstd
         
     def build_requirements(self):
-        self.build_requires("cmake/3.17.3")
+        self.build_requires("cmake/3.28.1")
     
     def source(self):
         tools.get(**self.conan_data["sources"][self.version])
